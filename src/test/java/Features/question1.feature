@@ -1,15 +1,14 @@
-Feature: QUESTION-1
+Feature: Requirements-1
   Background:
-    * url 'https://url/api/books'
-  # 1. Verify that the API starts with an empty store.
-  #   • At the beginning of a test case, there should be no books stored on the server.
+    * url 'https://localhost:8093'
+    * header Accept = 'application/json'
 
-  Scenario: Verify that the API starts with an empty store.
-    Given url
-    When method get
-    Then status 200
-    Then print response
-    And match response ==
-     """
-     {}
-     """
+    Scenario: Verify that the API starts with an empty store.
+      Given path '/api/books'
+      When method get
+      Then status 200
+      * print response
+      And match response ==
+       """
+       { }
+       """
